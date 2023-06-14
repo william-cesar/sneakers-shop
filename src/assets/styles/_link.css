@@ -1,0 +1,17 @@
+a {
+  text-decoration: none;
+  color: var(--very-dark-blue);
+  transition: all 300ms;
+}
+
+a.nav-link {
+  color: var(--dark-grayish-blue);
+}
+
+a.nav-link:hover {
+  color: var(--orange);
+}
+
+a.nav-link.router-link-active {
+  color: var(--very-dark-blue);
+}
