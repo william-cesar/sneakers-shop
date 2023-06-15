@@ -30,6 +30,7 @@ body {
   max-width: var(--max-app-width);
   height: 100dvh;
   padding-inline: 2rem;
+  margin-inline: auto;
   overflow-x: auto;
   display: grid;
   grid-template-rows: auto 1fr;
