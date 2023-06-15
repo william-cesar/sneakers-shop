@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <navbar />
+    <app-navbar />
   </header>
   <section class="content">
     <router-view></router-view>
@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import Navbar from '@components/navbar.vue';
+import AppNavbar from '@components/app-navbar.vue';
 </script>
 
 <style scoped></style>

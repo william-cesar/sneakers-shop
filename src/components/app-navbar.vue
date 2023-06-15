@@ -1,6 +1,8 @@
 <template>
   <nav class="navbar">
-    <router-link to="/" class="home-link"> sneakers </router-link>
+    <router-link to="/" class="home-link">
+      <img src="@assets/svg/logo.svg" alt="sneakers" />
+    </router-link>
     <ul class="pages-list">
       <li class="page-link">
         <router-link class="nav-link" to="/collections">
@@ -15,14 +17,14 @@
       </li>
     </ul>
     <div class="user-area">
-      <cart />
+      <app-cart />
       <img class="avatar" src="@root/avatar.png" alt="user avatar" />
     </div>
   </nav>
 </template>
 
 <script setup>
-import Cart from './cart.vue';
+import AppCart from './app-cart.vue';
 </script>
 
 <style scoped>
@@ -30,18 +32,8 @@ import Cart from './cart.vue';
   display: flex;
   align-items: center;
   gap: 3rem;
-  padding-block: 1rem;
+  padding-block: 2rem;
   border-bottom: 1px solid var(--grayish-blue);
-}
-
-.navbar > .home-link {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
-}
-
-.navbar > .home-link:hover {
-  transition: all 300ms;
-  text-shadow: 1.5px 0 0 black;
 }
 
 .navbar > .pages-list {
