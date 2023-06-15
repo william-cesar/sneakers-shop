@@ -34,6 +34,7 @@ import AppCart from './app-cart.vue';
   gap: 3rem;
   padding-block: 2rem;
   border-bottom: 1px solid var(--grayish-blue);
+  width: fit-content;
 }
 
 .navbar > .pages-list {
