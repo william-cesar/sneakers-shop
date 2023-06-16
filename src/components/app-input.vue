@@ -21,10 +21,8 @@
 <script setup>
 import { ref, watchEffect } from 'vue';
 
-const props = defineProps({
-  addedItems: { type: Number, default: 0 },
-});
-
+const emit = defineEmits(['value-change']);
+const props = defineProps({ addedItems: { type: Number, default: 0 } });
 const counter = ref(props.addedItems);
 
 const formatInput = () => {
@@ -35,11 +33,8 @@ watchEffect(() => {
   if (counter.value < 0 || counter.value === '') {
     counter.value = 0;
   }
-
   emit('value-change', counter.value);
 });
-
-const emit = defineEmits(['value-change']);
 
 const increment = () => {
   counter.value++;
