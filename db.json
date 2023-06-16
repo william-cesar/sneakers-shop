@@ -1,0 +1,28 @@
+{
+  "collections": {
+    "men": [
+      {
+        "id": "001a",
+        "title": "Fall Limited Edition Sneakers",
+        "brand": "sneaker company",
+        "description": "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer",
+        "oldPrice": 250.0,
+        "price": 125.0,
+        "discount": 50,
+        "inStock": 7
+      }
+    ],
+    "women": [
+      {
+        "id": "110a",
+        "title": "Fall Limited Edition Sneakers",
+        "brand": "sneaker company",
+        "description": "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer",
+        "oldPrice": 250.0,
+        "price": 125.0,
+        "discount": 50,
+        "inStock": 7
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <router-link class="cart" to="/checkout">
-    <span class="counter">{{ totalItems }}</span>
+    <span class="counter" v-if="totalItems">{{ totalItems }}</span>
     <img
       class="shopping-cart"
       src="@assets/svg/icon-cart.svg"

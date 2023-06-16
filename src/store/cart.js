@@ -43,6 +43,7 @@ export const useCartStore = {
       }
     },
   },
+
   actions: {
     addProductToCart({ commit }, product) {
       commit('addItem', product);
