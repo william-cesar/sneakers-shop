@@ -1,13 +1,17 @@
 <template>
-  <app-input :addedItems="32" @value-change="valueChange" />
+  <Suspense>
+    <app-input-product :itemId="id" :type="name" />
+  </Suspense>
 </template>
 
 <script setup>
-import AppInput from '@components/app-input.vue';
+import AppInputProduct from '@components/app-input-product.vue';
+import { useRoute } from 'vue-router';
 
-const valueChange = (e) => {
-  console.log(e);
-};
+const route = useRoute();
+
+const { params, name } = route;
+const { id } = params;
 </script>
 
 <style scoped></style>

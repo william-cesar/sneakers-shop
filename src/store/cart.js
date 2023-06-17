@@ -3,7 +3,10 @@ export const useCartStore = {
 
   getters: {
     itemsCount: (state) => state.items.length,
-    itemsList: (state) => state.items,
+    allItems: (state) => state.items,
+    itemById: (state) => (id) => {
+      return state.items.find((item) => item.id === id);
+    },
     totalPrice: (state) => {
       if (state.items.length) {
         return state.items.reduce((acc, item) => acc + item.totalPrice);
@@ -13,43 +16,23 @@ export const useCartStore = {
   },
 
   mutations: {
-    addItem(state, newItem) {
-      const existingItemIdx = state.items.findIndex(
-        (cartItem) => cartItem.id === newItem.id
+    updateItem(state, item) {
+      const index = state.items.findIndex(
+        (cartItem) => cartItem.id === item.id
       );
 
-      if (existingItemIdx > -1) {
-        const existingItem = state.items.at(existingItemIdx);
-
-        existingItem.quantity += 1;
-        existingItem.totalPrice =
-          existingItem.quantity * existingItem.unitPrice;
+      if (index > -1) {
+        item.quantity === 0 && state.items.splice(index, 1);
+        item.quantity > 0 ? (state.items[index] = item) : null;
       } else {
-        state.items.unshift(newItem);
-      }
-    },
-    removeItem(state, itemId) {
-      const existingItemIdx = state.items.findIndex(
-        (cartItem) => cartItem.id === itemId
-      );
-      const existingItem = state.items.at(existingItemIdx);
-
-      if (existingItem.quantity > 1) {
-        existingItem.quantity -= 1;
-        existingItem.totalPrice =
-          existingItem.quantity * existingItem.unitPrice;
-      } else {
-        state.items.splice(existingItemIdx, 1);
+        item.quantity > 0 && state.items.push(item);
       }
     },
   },
 
   actions: {
-    addProductToCart({ commit }, product) {
-      commit('addItem', product);
-    },
-    removeProductFromCart({ commit }, product) {
-      commit('removeItem', product.id);
+    updateCart({ commit }, product) {
+      commit('updateItem', product);
     },
   },
 };

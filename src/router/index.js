@@ -8,11 +8,11 @@ const Men = () => import('@/views/Men.vue');
 const Women = () => import('@/views/Women.vue');
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/checkout', component: Checkout },
-  { path: '/collections', component: Collections },
-  { path: '/men', component: Men },
-  { path: '/women', component: Women },
+  { name: 'home', path: '/', component: Home },
+  { name: 'checkout', path: '/checkout', component: Checkout },
+  { name: 'collections', path: '/collections', component: Collections },
+  { name: 'men', path: '/men/:id', component: Men },
+  { name: 'women', path: '/women', component: Women },
 ];
 
 const router = createRouter({

@@ -19,25 +19,45 @@
 </template>
 
 <script setup>
-import { ref, watchEffect } from 'vue';
+import { ref, watchEffect, computed } from 'vue';
+import { useStore } from 'vuex';
+import productService from '@/services/product-service.js';
 
-const emit = defineEmits(['value-change']);
-const props = defineProps({ addedItems: { type: Number, default: 0 } });
-const counter = ref(props.addedItems);
+const store = useStore();
+const props = defineProps({ itemId: String, type: String });
+const counter = ref(0);
+const cartItemById = computed(() => store.getters.itemById(props.itemId));
+const formatInput = () => (counter.value = parseInt(counter.value));
+let product;
 
-const formatInput = () => {
-  counter.value = parseInt(counter.value);
-};
+try {
+  const { data } = await productService.getProductByTypeAndById(
+    props.type,
+    props.itemId
+  );
+
+  product = data;
+} catch (e) {
+  console.log({ e });
+}
 
 watchEffect(() => {
   if (counter.value < 0 || counter.value === '') {
     counter.value = 0;
   }
-  emit('value-change', counter.value);
+
+  if (counter.value > cartItemById.value?.inStock) {
+    counter.value = cartItemById.value.inStock;
+  }
+
+  product = { ...product, quantity: counter.value };
+  store.dispatch('updateCart', product);
 });
 
 const increment = () => {
-  counter.value++;
+  if (!cartItemById.value || counter.value < cartItemById.value?.inStock) {
+    counter.value++;
+  }
 };
 
 const decrement = () => {
