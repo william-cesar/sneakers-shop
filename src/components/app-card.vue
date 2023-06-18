@@ -7,7 +7,9 @@
       <span class="old-price"> ${{ product.oldPrice.toFixed(2) }} </span>
       <span class="discount"> -{{ product.discount }}% </span>
     </div>
-    <button class="see-more">{{ text.seeMore }}</button>
+    <button class="see-more-btn">
+      <img src="@root/see-more.png" alt="eye icon" />{{ text.seeMore }}
+    </button>
   </section>
 </template>
 
