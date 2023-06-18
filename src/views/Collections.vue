@@ -1,8 +1,8 @@
 <template>
-  <section class="collections">
-    <h1 class="title">{{ text.sections.collections }}</h1>
+  <section class="collections page-spacing page-direction">
+    <h1 class="page-title">{{ text.sections.collections }}</h1>
     <div
-      class="sections"
+      class="sections page-direction"
       v-for="collection of collectionTypes"
       :key="collection.type"
     >
@@ -18,16 +18,3 @@ import text from '@static/text.js';
 import collectionTypes from '@static/collection-types.js';
 import AppCollection from '@components/app-collection.vue';
 </script>
-
-<style scoped>
-.collections,
-.collections > .sections {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.collections > .title {
-  font-size: 1.5rem;
-}
-</style>

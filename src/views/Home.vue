@@ -1,5 +1,5 @@
 <template>
-  <section class="home">
+  <section class="home center-flex-column">
     <img
       class="sneakers"
       src="@root/fashion-sneakers.png"
@@ -16,10 +16,6 @@ import text from '@static/text.js';
 
 <style scoped>
 .home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100%;
   gap: 4rem;
   position: relative;

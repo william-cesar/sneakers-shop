@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar align-flex-row">
     <router-link to="/" class="home-link">
       <img src="@assets/svg/logo.svg" alt="sneakers" />
     </router-link>
@@ -20,7 +20,7 @@
         </router-link>
       </li>
     </ul>
-    <div class="user-area">
+    <div class="user-area align-flex-row">
       <app-cart />
       <img class="avatar" src="@root/avatar.png" alt="user avatar" />
     </div>
@@ -34,8 +34,6 @@ import AppCart from './app-cart.vue';
 
 <style scoped>
 .navbar {
-  display: flex;
-  align-items: center;
   gap: 3rem;
   padding-block: 2rem;
   border-bottom: 1px solid var(--grayish-blue);
@@ -51,8 +49,6 @@ import AppCart from './app-cart.vue';
 }
 
 .navbar > .user-area {
-  display: flex;
-  align-items: center;
   gap: 2rem;
   margin-left: auto;
 }

@@ -1,6 +1,8 @@
 <template>
   <router-link class="cart" to="/checkout">
-    <span class="counter" v-if="totalItems">{{ totalItems }}</span>
+    <span class="counter center-flex-row" v-if="totalItems">{{
+      totalItems
+    }}</span>
     <img
       class="shopping-cart"
       src="@assets/svg/icon-cart.svg"
@@ -29,9 +31,6 @@ const totalItems = computed(() => store.getters.itemsCount);
   width: 1.25rem;
   height: 1.25rem;
   background-color: var(--orange);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 0.75rem;
   font-weight: 700;
   border-radius: 50%;

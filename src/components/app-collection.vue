@@ -1,8 +1,10 @@
 <template>
   <section class="app-collection">
-    <h2 class="title">{{ collection.title }}</h2>
+    <router-link v-if="collection.title" :to="collection.link">
+      <h2 class="collection-title">{{ collection.title }}</h2>
+    </router-link>
     <div class="section" v-for="product of products" :key="product.id">
-      <app-card :product="product" />
+      <app-card :product="product" :type="collection.type" />
     </div>
   </section>
 </template>
@@ -30,9 +32,10 @@ try {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding-top: 1rem;
 }
 
-.app-collection > .title {
-  font-size: 1.125rem;
+.app-collection > a > .collection-title {
+  font-size: 1.25rem;
 }
 </style>

@@ -1,17 +1,13 @@
 <template>
-  <Suspense>
-    <app-input-product :itemId="id" :type="name" />
-  </Suspense>
+  <section class="men page-spacing page-direction">
+    <h1 class="page-title">{{ text.sections.men }}</h1>
+    <Suspense>
+      <app-collection :collection="{ type: 'men' }" />
+    </Suspense>
+  </section>
 </template>
 
 <script setup>
-import AppInputProduct from '@components/app-input-product.vue';
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
-
-const { params, name } = route;
-const { id } = params;
+import text from '@static/text.js';
+import AppCollection from '@components/app-collection.vue';
 </script>
-
-<style scoped></style>

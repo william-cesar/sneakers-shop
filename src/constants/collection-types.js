@@ -1,4 +1,4 @@
 export default [
-  { title: 'Men', type: 'men' },
-  { title: 'Women', type: 'women' },
+  { title: 'Men', type: 'men', link: '/men' },
+  { title: 'Women', type: 'women', link: '/women' },
 ];

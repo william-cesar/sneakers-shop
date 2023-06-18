@@ -1,10 +1,14 @@
 <template>
-  <div class="app-input">
-    <button class="minus-btn item" type="button" @click="decrement">
+  <div class="app-input align-flex-row">
+    <button
+      class="minus-btn item center-flex-row"
+      type="button"
+      @click="decrement"
+    >
       <img src="@assets/svg/icon-minus.svg" alt="minus" />
     </button>
     <input
-      class="number item"
+      class="number item center-flex-row"
       type="number"
       min="0"
       step="1"
@@ -12,7 +16,11 @@
       @input="(e) => (counter = e.target.value.replace(/^0+/, 0))"
       @blur="formatInput"
     />
-    <button class="plus-btn item" type="button" @click="increment">
+    <button
+      class="plus-btn item center-flex-row"
+      type="button"
+      @click="increment"
+    >
       <img src="@assets/svg/icon-plus.svg" alt="plus" />
     </button>
   </div>
@@ -68,17 +76,9 @@ const decrement = () => {
 </script>
 
 <style scoped>
-.app-input {
-  display: flex;
-  align-items: center;
-}
-
 .app-input > .item {
   width: 2rem;
   height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   background-color: var(--light-grayish-blue);
   outline: none;

@@ -7,9 +7,17 @@ button {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem;
+  transition: all 0.25s;
+}
+
+button:hover {
+  opacity: 0.85;
 }
 
 .see-more-btn {
   background-color: var(--orange);
   width: 100%;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
 }
