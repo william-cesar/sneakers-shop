@@ -14,7 +14,7 @@ button:hover {
   opacity: 0.85;
 }
 
-.see-more-btn {
+.action-btn {
   background-color: var(--orange);
   width: 100%;
   color: var(--white);

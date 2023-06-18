@@ -8,4 +8,5 @@ export default {
     description: 'Your best pair of sneakers is here.',
   },
   seeMore: 'See more',
+  keepShopping: 'Keep shopping',
 };

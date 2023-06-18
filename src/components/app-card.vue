@@ -8,7 +8,7 @@
       <span class="discount-tag"> -{{ product.discount }}% </span>
     </div>
     <router-link :to="route" class="see-more">
-      <button class="see-more-btn">
+      <button class="see-more-btn action-btn">
         <img class="see-more-icon" src="@root/see-more.png" alt="eye icon" />{{
           text.seeMore
         }}

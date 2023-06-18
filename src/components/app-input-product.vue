@@ -76,9 +76,13 @@ const decrement = () => {
 </script>
 
 <style scoped>
+.app-input {
+  width: fit-content;
+}
+
 .app-input > .item {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 100%;
   text-align: center;
   background-color: var(--light-grayish-blue);
   outline: none;

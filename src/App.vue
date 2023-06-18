@@ -3,12 +3,12 @@
     <app-navbar />
   </header>
   <section class="content">
-    <router-view></router-view>
+    <Suspense>
+      <router-view></router-view>
+    </Suspense>
   </section>
 </template>
 
 <script setup>
 import AppNavbar from '@components/app-navbar.vue';
 </script>
-
-<style scoped></style>
