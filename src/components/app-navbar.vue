@@ -6,14 +6,18 @@
     <ul class="pages-list">
       <li class="page-link">
         <router-link class="nav-link" to="/collections">
-          Collections
+          {{ text.navbar.sections.collections }}
         </router-link>
       </li>
       <li class="page-link">
-        <router-link class="nav-link" to="/men"> Men </router-link>
+        <router-link class="nav-link" to="/men">
+          {{ text.navbar.sections.men }}
+        </router-link>
       </li>
       <li class="page-link">
-        <router-link class="nav-link" to="/women"> Women </router-link>
+        <router-link class="nav-link" to="/women">
+          {{ text.navbar.sections.women }}
+        </router-link>
       </li>
     </ul>
     <div class="user-area">
@@ -24,6 +28,7 @@
 </template>
 
 <script setup>
+import text from '@static/text.js';
 import AppCart from './app-cart.vue';
 </script>
 

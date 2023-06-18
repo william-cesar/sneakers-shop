@@ -15,6 +15,7 @@ export default defineConfig({
       ),
       '@root': fileURLToPath(new URL(resolve(__dirname), import.meta.url)),
       '@styles': fileURLToPath(new URL('./src/assets/styles', import.meta.url)),
+      '@static': fileURLToPath(new URL('./src/constants', import.meta.url)),
     },
   },
 });
