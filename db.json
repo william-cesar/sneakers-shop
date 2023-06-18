@@ -8,7 +8,21 @@
       "oldPrice": 250.0,
       "price": 125.0,
       "discount": 50,
-      "inStock": 7
+      "inStock": 7,
+      "images": {
+        "large": [
+          "/mens-01.jpg",
+          "/mens-02.jpg",
+          "/mens-03.jpg",
+          "/mens-04.jpg"
+        ],
+        "thumb": [
+          "/mens-01-thumb.jpg",
+          "/mens-02-thumb.jpg",
+          "/mens-03-thumb.jpg",
+          "/mens-04-thumb.jpg"
+        ]
+      }
     }
   ],
   "women": [
@@ -20,7 +34,15 @@
       "oldPrice": 250.0,
       "price": 125.0,
       "discount": 50,
-      "inStock": 7
+      "inStock": 7,
+      "images": {
+        "large": ["/womens-01.jpg", "/womens-02.jpg", "/womens-03.jpg"],
+        "thumb": [
+          "/womens-01-thumb.jpg",
+          "/womens-02-thumb.jpg",
+          "/womens-03-thumb.jpg"
+        ]
+      }
     }
   ]
 }

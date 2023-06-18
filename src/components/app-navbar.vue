@@ -6,17 +6,17 @@
     <ul class="pages-list">
       <li class="page-link">
         <router-link class="nav-link" to="/collections">
-          {{ text.navbar.sections.collections }}
+          {{ text.sections.collections }}
         </router-link>
       </li>
       <li class="page-link">
         <router-link class="nav-link" to="/men">
-          {{ text.navbar.sections.men }}
+          {{ text.sections.men }}
         </router-link>
       </li>
       <li class="page-link">
         <router-link class="nav-link" to="/women">
-          {{ text.navbar.sections.women }}
+          {{ text.sections.women }}
         </router-link>
       </li>
     </ul>
