@@ -9,7 +9,7 @@
     </div>
     <router-link :to="route" class="see-more">
       <button class="see-more-btn action-btn">
-        <img class="see-more-icon" src="@root/see-more.png" alt="eye icon" />{{
+        <img class="see-more-icon" src="@root/view.png" alt="eye icon" />{{
           text.seeMore
         }}
       </button>
