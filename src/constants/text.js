@@ -9,4 +9,8 @@ export default {
   },
   seeMore: 'See more',
   keepShopping: 'Keep shopping',
+  quantity: 'Quantity:',
+  total: 'Total:',
+  savings: 'Savings:',
+  checkout: 'Checkout'
 };

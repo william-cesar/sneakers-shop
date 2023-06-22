@@ -58,7 +58,7 @@ watchEffect(() => {
     counter.value = cartItemById.value.inStock;
   }
 
-  product = { ...product, quantity: counter.value };
+  product = { ...product, quantity: parseInt(counter.value, 10) };
   store.dispatch('updateCart', product);
 });
 
