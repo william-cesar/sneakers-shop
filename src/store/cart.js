@@ -17,7 +17,7 @@ export const useCartStore = {
     totalPrice: (state) => {
       if (state.items.length) {
         return state.items.reduce((acc, item) => {
-          return (acc + item.quantity * item.price).toFixed(2);
+          return acc + item.quantity * item.price;
         }, 0);
       }
       return 0;
@@ -25,7 +25,7 @@ export const useCartStore = {
     totalOldPrice: (state) => {
       if (state.items.length) {
         return state.items.reduce((acc, item) => {
-          return (acc + item.quantity * item.oldPrice).toFixed(2);
+          return acc + item.quantity * item.oldPrice;
         }, 0);
       }
       return 0;

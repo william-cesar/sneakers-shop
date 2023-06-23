@@ -1,14 +1,14 @@
 <template>
   <div class="cart-items">
-    <div 
-      class="item-row align-flex-row" 
-      v-for="product of products" 
+    <div
+      class="item-row align-flex-row"
+      v-for="product of products"
       :key="product.id"
     >
-      <img 
-        class="preview-img" 
-        :src="product.images.thumb[0]" 
-        alt="preview image" 
+      <img
+        class="preview-img"
+        :src="product.images.thumb[0]"
+        alt="preview image"
       />
       <div class="info">
         <span class="name">{{ product.title }}</span>
@@ -18,19 +18,16 @@
       </div>
     </div>
     <div class="savings">
-      {{ text.savings }} <span>{{ formattedSavings() }}</span> 
+      {{ text.savings }} <span>{{ formattedSavings() }}</span>
     </div>
     <div class="total-items">
       {{ formattedTotal() }}
     </div>
-      <router-link to="/checkout" class="checkout" >
-        <button 
-          class="checkout-btn action-btn" 
-          @click="emit('checkout')"
-        >
-          {{ text.checkout }}
-        </button>
-      </router-link>
+    <router-link to="/checkout" class="checkout">
+      <button class="checkout-btn action-btn" @click="emit('checkout')">
+        {{ text.checkout }}
+      </button>
+    </router-link>
   </div>
 </template>
 
@@ -54,7 +51,7 @@ const formattedSavings = () => {
 };
 
 const formattedTotal = () => {
-  return `${text.total} $${totalPrice.value}`;
+  return `${text.total} $${totalPrice.value.toFixed(2)}`;
 };
 </script>
 
@@ -87,7 +84,7 @@ const formattedTotal = () => {
   gap: 1rem;
 }
 
-.cart-items > .item-row > .info > .name, 
+.cart-items > .item-row > .info > .name,
 .cart-items > .item-row > .info > .total {
   font-weight: 700;
   font-size: 0.875rem;
@@ -103,7 +100,7 @@ const formattedTotal = () => {
   font-size: 0.875rem;
 }
 
-.cart-items > .savings > span{
+.cart-items > .savings > span {
   text-decoration: line-through;
 }
 
@@ -116,4 +113,3 @@ const formattedTotal = () => {
   width: 100%;
 }
 </style>
-
