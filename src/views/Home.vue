@@ -17,7 +17,7 @@ import text from '@static/text.js';
 <style scoped>
 .home {
   height: 100%;
-  gap: 4rem;
+  gap: 5rem;
   position: relative;
 }
 

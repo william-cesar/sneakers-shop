@@ -28,11 +28,11 @@ const props = defineProps({ product: Object, type: String });
 
 <style scoped>
 .product {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 1rem;
+  justify-self: center;
+  gap: 1.5rem;
+  width: 23rem;
 }
 
 .product > .company {
@@ -42,7 +42,7 @@ const props = defineProps({ product: Object, type: String });
 }
 
 .product > .name {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -61,11 +61,11 @@ const props = defineProps({ product: Object, type: String });
 
 .product > .price-section > .price {
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
 
 .product > .price-section > .old-price {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--dark-grayish-blue);
   text-decoration: line-through;
 }

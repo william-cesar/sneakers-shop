@@ -78,6 +78,7 @@ const decrement = () => {
 <style scoped>
 .app-input {
   width: fit-content;
+  filter: drop-shadow(0.25rem 0.25rem 0.25rem var(--grayish-blue));
 }
 
 .app-input > .item {

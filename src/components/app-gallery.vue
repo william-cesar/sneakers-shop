@@ -1,17 +1,24 @@
 <template>
-  <div class="app-galley center-flex-column">
+  <div class="app-gallery center-flex-column">
     <div class="img-area">
-      <button class="prev" @click="setPrevImage">
-        <img src="@assets/svg/icon-previous.svg" alt="previous btn" />
+      <button v-if="previewMode" class="prev" @click="setPrevImage">
+        <img src="@assets/svg/icon-previous.svg" alt="previous button" />
       </button>
-      <button class="next" @click="setNextImage">
-        <img src="@assets/svg/icon-next.svg" alt="next btn" />
+      <button v-if="previewMode" class="next" @click="setNextImage">
+        <img src="@assets/svg/icon-next.svg" alt="next button" />
+      </button>
+      <button
+        v-if="previewMode"
+        class="close"
+        @click="emit('toggleModal', false)"
+      >
+        <img src="@assets/svg/icon-close.svg" alt="close button" />
       </button>
       <img
         :src="currentImage"
         alt="sneaker"
         class="current"
-        @click="emit('openModal')"
+        @click="emit('toggleModal', true)"
       />
     </div>
     <div class="gallery">
@@ -30,8 +37,8 @@
 <script setup>
 import { ref } from 'vue';
 
-const props = defineProps({ photos: Object });
-const emit = defineEmits(['openModal']);
+const props = defineProps({ photos: Object, previewMode: Boolean });
+const emit = defineEmits(['toggleModal']);
 
 const currentImage = ref(props.photos.large[0]);
 const currentThumb = ref(props.photos.thumb[0]);
@@ -45,18 +52,42 @@ const setCurrentImage = (thumbSrc) => {
   currentThumb.value = thumbSrc;
   currentImage.value = thumbSrc.replace('-thumb', '');
 };
+
+const setNextImage = () => {
+  const list = props.photos.large;
+  const idx = list.indexOf(currentImage.value);
+  const nextIdx = idx + 1;
+
+  if (nextIdx < list.length) {
+    currentImage.value = list[nextIdx];
+  } else {
+    currentImage.value = list[0];
+  }
+};
+
+const setPrevImage = () => {
+  const list = props.photos.large;
+  const idx = list.indexOf(currentImage.value);
+  const prevIdx = idx - 1;
+
+  if (prevIdx > -1) {
+    currentImage.value = list[prevIdx];
+  } else {
+    currentImage.value = list.at(-1);
+  }
+};
 </script>
 
 <style scoped>
-.app-galley {
+.app-gallery {
   gap: 2rem;
 }
 
-.app-galley > .img-area {
+.app-gallery > .img-area {
   position: relative;
 }
 
-.app-galley > .img-area > .current {
+.app-gallery > .img-area > .current {
   border-radius: 1rem;
   height: 25rem;
   width: 23rem;
@@ -64,7 +95,7 @@ const setCurrentImage = (thumbSrc) => {
   cursor: pointer;
 }
 
-.app-galley > .img-area > button {
+.app-gallery > .img-area > button {
   position: absolute;
   top: 50%;
   border-radius: 50%;
@@ -72,27 +103,35 @@ const setCurrentImage = (thumbSrc) => {
   height: 2rem;
 }
 
-.app-galley > .img-area > .prev {
+.app-gallery > .img-area > .prev {
   left: 0;
   transform: translate(-50%, -50%);
 }
 
-.app-galley > .img-area > .next {
+.app-gallery > .img-area > .next {
   right: 0;
   transform: translate(50%, -50%);
 }
 
-.app-galley > .img-area > button > img {
+.app-gallery > .img-area > .close {
+  padding: 0;
+  width: fit-content;
+  background-color: transparent;
+  top: -2.5rem;
+  right: 0;
+}
+
+.app-gallery > .img-area > button:not(.close) > img {
   width: 0.625rem;
   height: 0.625rem;
 }
 
-.app-galley > .gallery {
+.app-gallery > .gallery {
   display: flex;
   gap: 2rem;
 }
 
-.app-galley > .gallery > .gallery-thumb {
+.app-gallery > .gallery > .gallery-thumb {
   width: 4rem;
   height: 4rem;
   object-fit: cover;
@@ -101,7 +140,7 @@ const setCurrentImage = (thumbSrc) => {
   border: 2px solid transparent;
 }
 
-.app-galley > .gallery > .gallery-thumb.active {
+.app-gallery > .gallery > .gallery-thumb.active {
   filter: brightness(0.75);
   border-color: var(--orange);
 }

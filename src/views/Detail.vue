@@ -1,5 +1,5 @@
 <template>
-  <section class="detail page-spacing center-flex-row">
+  <section class="detail page-spacing">
     <app-preview :photos="product.images" />
     <app-product :product="product" :type="name" />
   </section>
@@ -30,6 +30,9 @@ try {
 <style scoped>
 .detail {
   height: 100%;
-  gap: 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
 }
 </style>
